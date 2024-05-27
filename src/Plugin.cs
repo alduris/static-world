@@ -9,7 +9,7 @@ using UnityEngine;
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
 #pragma warning restore CS0618
 
-namespace TestMod;
+namespace StaticWorld;
 
 [BepInPlugin("alduris.static", "Static World", "1.0")]
 sealed class Plugin : BaseUnityPlugin
