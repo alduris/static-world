@@ -1,4 +1,5 @@
 ﻿using BepInEx;
+using Menu.Remix.MixedUI;
 using MonoMod.RuntimeDetour;
 using System.Security.Permissions;
 using UnityEngine;
@@ -59,5 +60,17 @@ sealed class Plugin : BaseUnityPlugin
             LerpAmt = config.Bind("Static_amt", 0.5f);
         }
         public readonly Configurable<float> LerpAmt;
+
+        public override void Initialize()
+        {
+            base.Initialize();
+            var opTab = new OpTab(this, "Options");
+            this.Tabs = [opTab];
+
+            opTab.AddItems(
+                new OpLabel(10f, 560f, "RANDOM REPLACEMENT", true),
+                new OpFloatSlider(LerpAmt, new(10f, 530f), 580, 4)
+            );
+        }
     }
 }
